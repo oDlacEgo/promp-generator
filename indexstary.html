@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Promptów AI</title>
+    <style>
+	/* Styl głównego kontenera */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Nagłówek formularza */
+.form-container h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Styl dla pól tekstowych i innych elementów formularza */
+input, select, textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Styl przycisku */
+button {
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Styl checkboxów */
+.checkbox-group {
+    margin-top: 20px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column; /* Ustawia elementy w kolumnie */
+    gap: 10px; /* Odstęp między liniami */
+}
+
+.checkbox-list label {
+    display: flex; /* Checkbox i tekst w jednej linii */
+    align-items: center; /* Wyrównanie checkboxa i tekstu w pionie */
+    gap: 10px; /* Odstęp między checkboxem a tekstem */
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox-list input[type="checkbox"] {
+    margin: 0; /* Usuń domyślne marginesy */
+    padding: 0; /* Usuń domyślne wypełnienia */
+    width: auto; /* Ustaw domyślną szerokość checkboxa */
+}
+
+/* Styl dla legendy (tytuł grupy checkboxów) */
+.checkbox-group legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Generator Promptów AI</h2>
+        <form id="promptForm">
+            <label for="mainSubject">Główny temat:</label>
+            <input type="text" id="mainSubject" placeholder="np. Piękny krajobraz">
+			
+			            <label for="tool">Wybierz narzędzie:</label>
+            <select id="tool">
+                <option value="">Wybierz narzędzie</option>
+                <option value="brush">Pędzel</option>
+                <option value="pencil">Ołówek</option>
+                <option value="crayon">Kredka</option>
+                <option value="spray">Spray</option>
+                <option value="marker">Marker</option>
+                <option value="ink pen">Pióro</option>
+                <option value="charcoal">Węgiel</option>
+            </select>
+
+<fieldset class="checkbox-group">
+    <legend>Styl:</legend>
+    <div class="checkbox-list">
+        <label><input type="checkbox" value="realistic" class="style-checkbox"> Realistyczny</label>
+        <label><input type="checkbox" value="cartoon" class="style-checkbox"> Kreskówkowy</label>
+        <label><input type="checkbox" value="surreal" class="style-checkbox"> Surrealistyczny</label>
+        <label><input type="checkbox" value="abstract" class="style-checkbox"> Abstrakcyjny</label>
+        <label><input type="checkbox" value="minimalistic" class="style-checkbox"> Minimalistyczny</label>
+        <label><input type="checkbox" value="photorealistic" class="style-checkbox"> Fotorealistyczny</label>
+        <label><input type="checkbox" value="fantasy" class="style-checkbox"> Fantazyjny</label>
+        <label><input type="checkbox" value="cyberpunk" class="style-checkbox"> Cyberpunk</label>
+        <label><input type="checkbox" value="noir" class="style-checkbox"> Noir</label>
+        <label><input type="checkbox" value="steampunk" class="style-checkbox"> Steampunk</label>
+        <label><input type="checkbox" value="watercolor" class="style-checkbox"> Akwarela</label>
+        <label><input type="checkbox" value="pixel art" class="style-checkbox"> Pixel Art</label>
+        <label><input type="checkbox" value="vintage" class="style-checkbox"> Vintage</label>
+        <label><input type="checkbox" value="modern" class="style-checkbox"> Nowoczesny</label>
+        <label><input type="checkbox" value="futuristic" class="style-checkbox"> Futurystyczny</label>
+        <label><input type="checkbox" value="gothic" class="style-checkbox"> Gotycki</label>
+        <label><input type="checkbox" value="baroque" class="style-checkbox"> Barokowy</label>
+        <label><input type="checkbox" value="art deco" class="style-checkbox"> Art Deco</label>
+        <label><input type="checkbox" value="pop art" class="style-checkbox"> Pop Art</label>
+        <label><input type="checkbox" value="punk" class="style-checkbox"> Punk</label>
+        <label><input type="checkbox" value="neon" class="style-checkbox"> Neon</label>
+        <label><input type="checkbox" value="sketch" class="style-checkbox"> Szkic</label>
+        <label><input type="checkbox" value="low poly" class="style-checkbox"> Low Poly</label>
+        <label><input type="checkbox" value="line art" class="style-checkbox"> Line Art</label>
+        <label><input type="checkbox" value="comic book" class="style-checkbox"> Komiksowy</label>
+        <label><input type="checkbox" value="manga" class="style-checkbox"> Manga</label>
+        <label><input type="checkbox" value="superhero" class="style-checkbox"> Superbohaterowie</label>
+        <label><input type="checkbox" value="digital painting" class="style-checkbox"> Cyfrowe malarstwo</label>
+        <label><input type="checkbox" value="3D rendering" class="style-checkbox"> Renderowanie 3D</label>
+        <label><input type="checkbox" value="concept art" class="style-checkbox"> Concept Art</label>
+        <label><input type="checkbox" value="matte painting" class="style-checkbox"> Matte Painting</label>
+        <label><input type="checkbox" value="vector art" class="style-checkbox"> Grafika wektorowa</label>
+        <label><input type="checkbox" value="isometric" class="style-checkbox"> Izometryczny</label>
+    </div>
+</fieldset>
+
+
+
+            <label for="foreground">Pierwszy plan:</label>
+            <textarea id="foreground" rows="2" placeholder="np. Mała chatka otoczona drzewami"></textarea>
+
+            <label for="background">Drugi plan:</label>
+            <textarea id="background" rows="2" placeholder="np. Góry pokryte śniegiem w oddali"></textarea>
+
+            <label for="lighting">Oświetlenie:</label>
+            <select id="lighting">
+                <option value="">Wybierz oświetlenie</option>
+                <option value="soft morning light">Delikatne poranne światło</option>
+                <option value="golden hour">Złota godzina</option>
+                <option value="bright sunlight">Jasne światło słoneczne</option>
+                <option value="overcast">Pochmurne</option>
+                <option value="candlelight">Światło świec</option>
+                <option value="neon lights">Neonowe światła</option>
+                <option value="moonlight">Blask księżyca</option>
+                <option value="dramatic shadows">Dramatyczne cienie</option>
+                <option value="studio lighting">Oświetlenie studyjne</option>
+            </select>
+
+            <label for="colors">Schemat kolorów:</label>
+            <select id="colors">
+                <option value="">Wybierz schemat kolorów</option>
+                <option value="pastel">Pastelowe</option>
+                <option value="vibrant">Żywe</option>
+                <option value="monochrome">Monochromatyczne</option>
+                <option value="earthy">Ziemiste</option>
+                <option value="neon">Neonowe</option>
+                <option value="warm">Ciepłe</option>
+                <option value="cool">Chłodne</option>
+                <option value="dark">Ciemne</option>
+                <option value="bright">Jasne</option>
+                <option value="vintage">Vintage</option>
+                <option value="retro">Retro</option>
+                <option value="gradient">Gradient</option>
+            </select>
+
+            <label for="dimensions">Wymiary:</label>
+            <select id="dimensions">
+                <option value="">Wybierz wymiary</option>
+                <option value="1920x1080">1920x1080</option>
+                <option value="1920x1200">1920x1200</option>
+                <option value="1080x1080">1080x1080</option>
+                <option value="1024x1024">1024x1024</option>
+                <option value="1792x1024">1792x1024</option>
+                <option value="1024x1792">1024x1792</option>
+                <option value="1280x720">1280x720</option>
+                <option value="1024x768">1024x768</option>
+                <option value="800x600">800x600</option>
+                <option value="640x480">640x480</option>
+            </select>
+
+            <button type="button" onclick="generatePrompt()">Generuj prompt</button>
+        </form>
+
+        <div class="output" id="output">
+            <strong>Wygenerowany prompt:</strong>
+            <p id="generatedPrompt"></p>
+        </div>
+    </div>
+
+    <script>
+        function generatePrompt() {
+            const mainSubject = document.getElementById('mainSubject').value.trim();
+            const tool = document.getElementById('tool').value.trim();
+            const styleCheckboxes = document.querySelectorAll('.style-checkbox:checked');
+            const styles = Array.from(styleCheckboxes).map(cb => cb.value).join(', ');
+            const foreground = document.getElementById('foreground').value.trim();
+            const background = document.getElementById('background').value.trim();
+            const lighting = document.getElementById('lighting').value.trim();
+            const colors = document.getElementById('colors').value.trim();
+            const dimensions = document.getElementById('dimensions').value.trim();
+
+            let prompt = `${mainSubject}`;
+
+            if (tool) {
+                prompt += `, narzędzie: ${tool}`;
+            }
+            if (styles) {
+                prompt += `, styl: ${styles}`;
+            }
+            if (foreground) {
+                prompt += `, pierwszy plan: ${foreground}`;
+            }
+            if (background) {
+                prompt += `, drugi plan: ${background}`;
+            }
+            if (lighting) {
+                prompt += `, ${lighting}`;
+            }
+            if (colors) {
+                prompt += `, schemat kolorów: ${colors}`;
+            }
+            if (dimensions) {
+                prompt += `, rozdzielczość: ${dimensions}`;
+            }
+
+            document.getElementById('generatedPrompt').innerText = prompt;
+            copyToClipboard(prompt);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Prompt skopiowany do schowka!');
+            }).catch(err => {
+                console.error('Nie udało się skopiować tekstu: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
